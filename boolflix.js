@@ -1,74 +1,95 @@
-// Funzionr chr aggiunge il mio titolo con quanto voglio scrivere dentro
-function addTitle(title,orTit,lang,vote){
 
-  var tempData = {
 
-    title: title,
-    orTit: orTit,
-    lang: lang,
-    vote: vote,
+function printMovie(dataList){
+
+  var movie = $(".movie");
+  movie.remove();
+
+  var movieContainer = $(".movie-container");
+
+  var template = $("#movie-template").html();
+  var compiled = Handlebars.compile(template);
+
+  for (var i = 0; i < dataList.length; i++){
+
+    var data = dataList[i];
+    var tempData = {
+
+        title: data.title,
+        orTit: data.original_title,
+        lang: data.original_language,
+        vote: data.vote_average,
+      }
+
+    var movie = compiled(tempData);
+    movieContainer.append(movie);
   }
 
-  var template =$("#movie-template").html();
-  var compiled = Handlebars.compile(template);
-  var printedTitle = compiled(tempData);
-
-  var ulMovies = $(".movies");
-  ulMovies.append(printedTitle);
 }
 
+function ajaxSearchMovie(val){
 
-// Funzione che cicla nell'array e cerca quello che io voglio per ogni risultato
-function ajaxRes(data){
-
-  var results = data.results;
-  for (var i=0; i < results.length; i++){
-
-    var res = results[i];
-    var title = res.title;
-    var orTit = res.original_title;
-    var lang = res.original_language;
-    var vote = res.vote_average;
-
-    addTitle(title,orTit,lang,vote);
-  };
-};
-
-
-// Funzione che collega all'API che mi sono creata con postman
-function ajaxCall (title){
-
-  var outData ={
+  var outData = {
 
     api_key : "abf15a2efe1bddde74e9cbfe7712457a",
     language: "it-IT",
-    query: title,
+    query: val,
   };
+
 
   $.ajax({
 
     url:"https://api.themoviedb.org/3/search/movie",
     method: "GET",
     data : outData,
-    success: function(data){
+    success: function(inData){
 
-      ajaxRes(data);
+      var resultsM = inData.results;
+      var countM = resultsM.length;
+
+      if (countM > 0){
+
+        printMovie(resultsM);
+
+      };
 
     },
     error: function(request,state,error){
 
       console.log("request",request);
-      console.log("date",date);
+      console.log("state",state);
       console.log("error",error);
     },
   });
-};
+}
+
 
 // Funzione per collegare la ricerca del titolo a quanto voglio stampare
+function searchByBtn(input){
+
+  var input = $("#film-input");
+  var val = input.val();
+
+  ajaxSearchMovie(val);
+}
+
 
 function init (){
 
-  ajaxCall("Harry Potter e i");
+
+  var btn = $("#btn");
+  btn.click(searchByBtn);
+
+  var inputFilm = $("#film-input");
+
+  inputFilm.on("keyup", function(e){
+
+
+    if (e.which == 13){
+      searchByBtn();
+    }
+  })
+
 }
 
 

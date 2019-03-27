@@ -19,19 +19,30 @@
 
   <script id="movie-template" type="text/x-handlebars-template">
 
-    <li>Titolo : {{ title }} <br> Titolo Originale : {{ orTit }} <br> Lingua : {{ lang }} <br> Vote : {{ vote }}</li>
+    <!-- <li>Titolo : {{ title }} <br> Titolo Originale : {{ orTit }} <br> Lingua : {{ lang }} <br> Vote : {{ vote }}</li>
     <hr>
-    <br>
+    <br> -->
+      <div class="movie">
+        <ul>
+          <br>
+          <li class="title-film"> Titolo : {{ title }}</li>
+          <li> Titolo originale : {{ orTit  }}</li>
+          <li> Lingua originale : {{ lang }}</li>
+          <li> Voto : {{ vote }}</li>
+        </ul>
+        <br>
+        <hr>
+      </div>
+
   </script>
 
   <title>Boolflix</title>
 </head>
   <body>
     <h1 class="title">Boolflix</h1>
-    <input type="text" name="" value="">
-    <button type="button" name="button">Search</button>
-    <ul class="movies">
-
-    </ul>
+    <input id="film-input" type="text" name="" value="">
+    <button id="btn" type="button" name="button">Search</button>
+    <div class="movie-container">
+  </div>
   </body>
 </html>
