@@ -25,10 +25,13 @@
       <div class="movie">
         <ul>
           <br>
+          <li> {{ type }} </li>
           <li class="title-film"> Titolo : {{ title }}</li>
           <li> Titolo originale : {{ orTit  }}</li>
           <li> Lingua originale : {{ lang }}</li>
+          {{{ langPic }}}
           <li> Voto : {{ vote }}</li>
+          {{{ stars }}}
         </ul>
         <br>
         <hr>
@@ -40,7 +43,7 @@
 </head>
   <body>
     <h1 class="title">Boolflix</h1>
-    <input id="film-input" type="text" name="" value="">
+    <input id="film-input" type="text" name="" value="" placeholder="Search..">
     <button id="btn" type="button" name="button">Search</button>
     <div class="movie-container">
   </div>
