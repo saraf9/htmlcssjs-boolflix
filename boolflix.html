@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="boolflix.css">
   <!-- link al fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+  <!-- Link a googlefont per per Noto Sans TC -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
   <!-- Link al jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Link al js -->
@@ -35,6 +37,7 @@
           <div>
             <img id ="imgSrc" src=" {{ imgSrc }}" />
           </div>
+          <li> {{ overview }}
         </ul>
         <br>
         <hr>
@@ -45,12 +48,35 @@
   <title>Boolflix</title>
 </head>
   <body>
-    <h1 class="title">Boolflix</h1>
-    <input id="film-input" type="text" name="" value="" placeholder="Search here..">
-    <span id="btn">
-      <i class="fas fa-search"></i>
-    </span>
-
+    <header>
+      <div class="navbar">
+        <div class="left-nav">
+          <div class="logo">
+            <img id="logo" src="img/netflix.png" alt="">
+          </div>
+          <div class="list">
+            <span>Home</span>
+            <span>Serie</span>
+            <span>Film</span>
+            <span>Aggiunti di recente</span>
+            <span>La mia lista</span>
+          </div>
+        </div>
+        <div class="right-nav">
+          <input class="hidden m10" id="film-input" type="text" name="" value="" placeholder="Search here..">
+          <span class="m10" id="btn">
+            <i class="fas fa-search"></i>
+          </span>
+          <span class="notification m10">
+            <i class="fas fa-bell"></i>
+          </span>
+          <span class="profile m10">
+            <img src="https://occ-0-778-784.1.nflxso.net/art/ed259/bb34122b631257b8418ac9e4d9457c4d2e8ed259.png" alt="">
+            <i class="fas fa-angle-down m10"></i>
+          </span>
+        </div>
+      </div>
+    </header>
     <div class="movie-container">
   </div>
   </body>

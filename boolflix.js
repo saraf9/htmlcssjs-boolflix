@@ -54,7 +54,7 @@ function createFlagPic(flag){
 // Funzione per la creazione dell'immagine di copertina con i relativi link
 function getLinkImg(posterPath){
 
-  var imgSrc = "https://image.tmdb.org/t/p/w185";
+  var imgSrc = "https://image.tmdb.org/t/p/w342";
 
   if (posterPath == null){
 
@@ -215,12 +215,19 @@ function searchByBtn(input){
   ajaxSearchTv(val);
 }
 
-
+// function showInput(){
+//
+//   var btn =$("#btn");
+//   var e = btn.click();
+//
+// }
+//
 
 function init (){
 
   var btn = $("#btn");
   btn.click(searchByBtn);
+
 
   var inputFilm = $("#film-input");
 

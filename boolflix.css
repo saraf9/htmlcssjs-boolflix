@@ -2,13 +2,107 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: 'Noto Sans TC', sans-serif;
+
 }
 
-.title{
 
-  color: darkred;
-  margin-bottom: 15px;
+.navbar{
+
+  width: 100vw;
+  height: 70px;
+  line-height: 70px;
+
+  display: table;
+  content:"";
+  clear: both;
+
+  background-color: black;
+  color:white;
+  font-size: 13px;
 }
+
+.navbar > *{
+
+  display: flex;
+}
+
+.left-nav {
+
+  float: left;
+  width: 60%;
+
+}
+
+.left-nav > *{
+
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.logo{
+
+  display: flex;
+  align-items: center;
+}
+
+#logo{
+
+  width:92px;
+  margin-left: 30px;
+}
+
+.list{
+
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list > *:hover{
+
+  cursor:pointer;
+  color: lightgrey;
+}
+
+.right-nav {
+
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+.right-nav > *:hover{
+
+  cursor:pointer;
+  color: lightgrey;
+}
+
+.m10{
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+#film-input{
+
+  height:30px;
+}
+
+
+.profile{
+
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+
 
 .title-film{
 
