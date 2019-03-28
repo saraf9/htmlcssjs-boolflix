@@ -32,6 +32,9 @@
           {{{ langPic }}}
           <li> Voto : {{ vote }}</li>
           {{{ stars }}}
+          <div>
+            <img id ="imgSrc" src=" {{ imgSrc }}" />
+          </div>
         </ul>
         <br>
         <hr>
@@ -43,8 +46,11 @@
 </head>
   <body>
     <h1 class="title">Boolflix</h1>
-    <input id="film-input" type="text" name="" value="" placeholder="Search..">
-    <button id="btn" type="button" name="button">Search</button>
+    <input id="film-input" type="text" name="" value="" placeholder="Search here..">
+    <span id="btn">
+      <i class="fas fa-search"></i>
+    </span>
+
     <div class="movie-container">
   </div>
   </body>

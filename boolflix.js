@@ -1,3 +1,5 @@
+
+// Funzione per la creazione delle stelle
 function createStars(vote){
 
   vote /= 2;
@@ -15,6 +17,8 @@ function createStars(vote){
   return str;
 }
 
+
+// Funzione per la creazione delle bandiere in base al linguaggio
 function createFlagPic(flag){
 
   var flagPic;
@@ -47,6 +51,24 @@ function createFlagPic(flag){
 }
 
 
+// Funzione per la creazione dell'immagine di copertina con i relativi link
+function getLinkImg(posterPath){
+
+  var imgSrc = "https://image.tmdb.org/t/p/w185";
+
+  if (posterPath == null){
+
+     imgSrc = "img/nan.png"
+
+  } else {
+
+    imgSrc += posterPath;
+  }
+
+  return imgSrc;
+}
+
+// Funzione per la stampa del film
 function printMovie(dataList){
 
   var movie = $(".movie");
@@ -60,6 +82,7 @@ function printMovie(dataList){
   for (var i = 0; i < dataList.length; i++){
 
     var data = dataList[i];
+
     var tempData = {
 
       type: "Movie",
@@ -69,6 +92,7 @@ function printMovie(dataList){
       langPic: createFlagPic(data.original_language),
       vote: Math.ceil(data.vote_average) ,
       stars: createStars(data.vote_average),
+      imgSrc: getLinkImg(data.poster_path),
     }
 
     var movie = compiled(tempData);
@@ -76,6 +100,9 @@ function printMovie(dataList){
   }
 }
 
+
+
+// Funzione per la stampa della serieTv
 function printSeries(dataList){
 
 
@@ -96,7 +123,8 @@ function printSeries(dataList){
       langPic: createFlagPic(data.original_language),
       vote: Math.ceil(data.vote_average) ,
       stars: createStars(data.vote_average),
-      }
+      imgSrc: getLinkImg(data.poster_path),
+    };
 
     var serie = compiled(tempData);
     movieContainer.append(serie);
@@ -104,6 +132,8 @@ function printSeries(dataList){
 }
 
 
+
+// Funzione per il collegamento ajax all'API
 function ajaxSearchMovie(val){
 
   var outData = {
@@ -112,7 +142,6 @@ function ajaxSearchMovie(val){
     language: "it-IT",
     query: val,
   };
-
 
   $.ajax({
 
@@ -127,9 +156,7 @@ function ajaxSearchMovie(val){
       if (countM > 0){
 
         printMovie(resultsM);
-
       };
-
     },
     error: function(request,state,error){
 
@@ -138,7 +165,9 @@ function ajaxSearchMovie(val){
       console.log("error",error);
     },
   });
-}
+};
+
+
 
 function ajaxSearchTv(val){
 
