@@ -93,6 +93,7 @@ function printMovie(dataList){
       vote: Math.ceil(data.vote_average) ,
       stars: createStars(data.vote_average),
       imgSrc: getLinkImg(data.poster_path),
+      overview: data.overview,
     }
 
     var movie = compiled(tempData);
@@ -124,6 +125,7 @@ function printSeries(dataList){
       vote: Math.ceil(data.vote_average) ,
       stars: createStars(data.vote_average),
       imgSrc: getLinkImg(data.poster_path),
+      overview: data.overview,
     };
 
     var serie = compiled(tempData);
@@ -133,7 +135,7 @@ function printSeries(dataList){
 
 
 
-// Funzione per il collegamento ajax all'API
+// Funzione per il collegamento ajax all'API per i film
 function ajaxSearchMovie(val){
 
   var outData = {
@@ -168,7 +170,7 @@ function ajaxSearchMovie(val){
 };
 
 
-
+//Funzione di collegamento ajax all'API per le serie tv
 function ajaxSearchTv(val){
 
   var outData = {
@@ -215,22 +217,31 @@ function searchByBtn(input){
   ajaxSearchTv(val);
 }
 
-// function showInput(){
-//
-//   var btn =$("#btn");
-//   var e = btn.click();
-//
-// }
-//
-
-function init (){
-
-  var btn = $("#btn");
-  btn.click(searchByBtn);
+//Funzione che mi serve per la barra di ricerca da mostrare o no
+function showInput(){
 
 
   var inputFilm = $("#film-input");
 
+  if( inputFilm.hasClass("open")){
+
+    searchByBtn();
+  }else{
+
+    inputFilm.show({direction: "left"});
+    inputFilm.addClass("open");
+  }
+};
+
+
+function init (){
+
+  var btn = $("#btn");
+
+  btn.click(showInput);
+
+
+  var inputFilm = $("#film-input");
   inputFilm.on("keyup", function(e){
 
     if (e.which == 13){

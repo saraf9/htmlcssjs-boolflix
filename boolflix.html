@@ -28,16 +28,14 @@
         <ul>
           <br>
           <li> {{ type }} </li>
-          <li class="title-film"> Titolo : {{ title }}</li>
-          <li> Titolo originale : {{ orTit  }}</li>
-          <li> Lingua originale : {{ lang }}</li>
-          {{{ langPic }}}
-          <li> Voto : {{ vote }}</li>
-          {{{ stars }}}
+          <li class="title-film"> {{ title }}</li>
+          <li>  {{ orTit  }}</li>
+          <li> {{ lang }} {{{ langPic }}}</li>
+          <li> {{ vote }} {{{ stars }}}</li>
           <div>
-            <img id ="imgSrc" src=" {{ imgSrc }}" />
+            <img class=" m10"id ="imgSrc" src=" {{ imgSrc }}" />
           </div>
-          <li> {{ overview }}
+          <li> {{ overview }}</li>
         </ul>
         <br>
         <hr>
@@ -48,7 +46,7 @@
   <title>Boolflix</title>
 </head>
   <body>
-    <header>
+    <header class="hidden">
       <div class="navbar">
         <div class="left-nav">
           <div class="logo">
@@ -63,7 +61,7 @@
           </div>
         </div>
         <div class="right-nav">
-          <input class="hidden m10" id="film-input" type="text" name="" value="" placeholder="Search here..">
+          <input class="m10" id="film-input" type="text" name="" value="" placeholder="Search here..">
           <span class="m10" id="btn">
             <i class="fas fa-search"></i>
           </span>
@@ -77,7 +75,22 @@
         </div>
       </div>
     </header>
-    <div class="movie-container">
+    <main>
+      <div class="container">
+        <div class="content">
+          <div class="logo-main">
+            <img id="logo" src="img/netflix.png" alt="">
+          </div>
+          <div class="search">
+            <input class="m10" id="film-input-main" type="text" name="" value="" placeholder="Search here..">
+            <span class="m10" id="btn-main">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+      </div>
+      </div>
+    </main>
+    <div class="movie-container hidden">
   </div>
   </body>
 </html>
