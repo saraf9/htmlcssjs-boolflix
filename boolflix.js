@@ -1,3 +1,19 @@
+//Funzione con cui nascondo il logo centrale e compare la nav
+function showNav(){
+
+  var logo = $(".logo-main");
+  logo.click(function(){
+
+    var navbar =$(".navbar");
+    navbar.removeClass("hidden");
+
+
+    var logo = $(".logo-main");
+    logo.fadeOut(1000);
+
+    });
+}
+
 
 // Funzione per la creazione delle stelle
 function createStars(vote){
@@ -68,6 +84,7 @@ function getLinkImg(posterPath){
   return imgSrc;
 }
 
+
 // Funzione per la stampa del film
 function printMovie(dataList){
 
@@ -93,6 +110,7 @@ function printMovie(dataList){
       vote: Math.ceil(data.vote_average) ,
       stars: createStars(data.vote_average),
       imgSrc: getLinkImg(data.poster_path),
+
       overview: data.overview,
     }
 
@@ -102,10 +120,8 @@ function printMovie(dataList){
 }
 
 
-
 // Funzione per la stampa della serieTv
 function printSeries(dataList){
-
 
   var movieContainer = $(".movie-container");
 
@@ -132,7 +148,6 @@ function printSeries(dataList){
     movieContainer.append(serie);
   }
 }
-
 
 
 // Funzione per il collegamento ajax all'API per i film
@@ -215,7 +230,11 @@ function searchByBtn(input){
 
   ajaxSearchMovie(val);
   ajaxSearchTv(val);
+
 }
+
+
+
 
 //Funzione che mi serve per la barra di ricerca da mostrare o no
 function showInput(){
@@ -230,14 +249,58 @@ function showInput(){
 
     inputFilm.show({direction: "left"});
     inputFilm.addClass("open");
+    inputFilm.focus();
   }
 };
+
+// Funzione di hover che al passaggio del mouse sulla cover mi fa comparire le info
+
+function getInfo(){
+
+  $(document).on("mouseenter", ".imgSrc", function() {
+
+    var img = $(this);
+    var type = $(".type");
+    var orTit = $(".orTit");
+    var lang = $(".lang");
+    var vote = $(".vote");
+
+    type.removeClass("hidden");
+    orTit.removeClass("hidden");
+    lang.removeClass("hidden");
+    vote.removeClass("hidden");
+  });
+
+  $(document).on("mouseleave", ".imgSrc", function() {
+
+    var type = $(".type");
+    var orTit = $(".orTit");
+    var lang = $(".lang");
+    var vote = $(".vote");
+
+    type.addClass("hidden");
+    orTit.addClass("hidden");
+    lang.addClass("hidden");
+    vote.addClass("hidden");
+  });
+
+  $(document).on("click", ".imgSrc", function() {
+
+
+    var overview = $(".overview");
+
+    overview.removeClass("hidden");
+  });
+
+}
+
 
 
 function init (){
 
+  showNav();
+  getInfo();
   var btn = $("#btn");
-
   btn.click(showInput);
 
 

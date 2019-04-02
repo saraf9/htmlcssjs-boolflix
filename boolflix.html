@@ -26,19 +26,18 @@
     <br> -->
       <div class="movie">
         <ul>
-          <br>
-          <li> {{ type }} </li>
           <li class="title-film"> {{ title }}</li>
-          <li>  {{ orTit  }}</li>
-          <li> {{ lang }} {{{ langPic }}}</li>
-          <li> {{ vote }} {{{ stars }}}</li>
-          <div>
-            <img class=" m10"id ="imgSrc" src=" {{ imgSrc }}" />
+          <div class="img">
+            <img class ="imgSrc" src=" {{ imgSrc }}" />
+            <div class="overlay">
+              <li class=" type hidden"> {{ type }} </li>
+              <li class=" orTit hidden">  {{ orTit  }}</li>
+              <li class="lang hidden"> {{ lang }} {{{ langPic }}}</li>
+              <li  class= "vote hidden"> {{ vote }} {{{ stars }}}</li>
+            </div>
           </div>
-          <li> {{ overview }}</li>
+          <li class="overview hidden"> {{ overview }}</li>
         </ul>
-        <br>
-        <hr>
       </div>
 
   </script>
@@ -46,8 +45,8 @@
   <title>Boolflix</title>
 </head>
   <body>
-    <header class="hidden">
-      <div class="navbar">
+    <header>
+      <div class="navbar hidden">
         <div class="left-nav">
           <div class="logo">
             <img id="logo" src="img/netflix.png" alt="">
@@ -76,21 +75,15 @@
       </div>
     </header>
     <main>
-      <div class="container">
         <div class="content">
           <div class="logo-main">
             <img id="logo" src="img/netflix.png" alt="">
           </div>
-          <div class="search">
-            <input class="m10" id="film-input-main" type="text" name="" value="" placeholder="Search here..">
-            <span class="m10" id="btn-main">
-              <i class="fas fa-search"></i>
-            </span>
-          </div>
       </div>
+      <div class="movie-container ">
+
       </div>
     </main>
-    <div class="movie-container hidden">
-  </div>
+
   </body>
 </html>
