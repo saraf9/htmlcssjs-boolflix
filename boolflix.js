@@ -256,41 +256,44 @@ function showInput(){
 // Funzione di hover che al passaggio del mouse sulla cover mi fa comparire le info
 
 function getInfo(){
+  $(document).on("mouseenter", ".movie", function() {
 
-  $(document).on("mouseenter", ".imgSrc", function() {
+    var overlay = $(this).find(".overlay");
+    var type = $(this).find(".type");
+    var orTit = $(this).find(".orTit");
+    var lang = $(this).find(".lang");
+    var vote = $(this).find(".vote");
 
-    var img = $(this);
-    var type = $(".type");
-    var orTit = $(".orTit");
-    var lang = $(".lang");
-    var vote = $(".vote");
-
+    overlay.removeClass("hidden");
     type.removeClass("hidden");
     orTit.removeClass("hidden");
     lang.removeClass("hidden");
     vote.removeClass("hidden");
   });
 
-  $(document).on("mouseleave", ".imgSrc", function() {
+  $(document).on("mouseleave", ".movie", function() {
 
-    var type = $(".type");
-    var orTit = $(".orTit");
-    var lang = $(".lang");
-    var vote = $(".vote");
+    var overlay = $(this).find(".overlay");
+    var type = $(this).find(".type");
+    var orTit = $(this).find(".orTit");
+    var lang = $(this).find(".lang");
+    var vote = $(this).find(".vote");
 
+    overlay.addClass("hidden");
     type.addClass("hidden");
     orTit.addClass("hidden");
     lang.addClass("hidden");
     vote.addClass("hidden");
   });
 
-  $(document).on("click", ".imgSrc", function() {
+  $(document).on("click", ".movie", function() {
 
 
-    var overview = $(".overview");
+    var overview = $(this).find(".overview");
 
-    overview.removeClass("hidden");
+    overview.slideToggle("hidden");
   });
+
 
 }
 
@@ -302,7 +305,6 @@ function init (){
   getInfo();
   var btn = $("#btn");
   btn.click(showInput);
-
 
   var inputFilm = $("#film-input");
   inputFilm.on("keyup", function(e){

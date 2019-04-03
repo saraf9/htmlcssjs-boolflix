@@ -21,15 +21,13 @@
 
   <script id="movie-template" type="text/x-handlebars-template">
 
-    <!-- <li>Titolo : {{ title }} <br> Titolo Originale : {{ orTit }} <br> Lingua : {{ lang }} <br> Vote : {{ vote }}</li>
-    <hr>
-    <br> -->
+
       <div class="movie">
         <ul>
           <li class="title-film"> {{ title }}</li>
           <div class="img">
             <img class ="imgSrc" src=" {{ imgSrc }}" />
-            <div class="overlay">
+            <div class="overlay hidden">
               <li class=" type hidden"> {{ type }} </li>
               <li class=" orTit hidden">  {{ orTit  }}</li>
               <li class="lang hidden"> {{ lang }} {{{ langPic }}}</li>
