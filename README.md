@@ -24,11 +24,7 @@ Sono stati affrontati anche i seguenti argomenti: API, REST e abbiamo utilizzato
 
 <hr></hr>
 
-![](scr_net3.png)  
-
-<hr></hr>
-
-![](scr_net4.png)  
+![](scr_net3.png)   
 
 <hr></hr>
 
