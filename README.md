@@ -1,4 +1,4 @@
-<h1> ##Boolflix </1>
+<h1> ##Boolflix </h1>
 
 Boolflix è un progetto di replica della pagina di Netflix, mediante il quale si può effettuare la ricerca per titolo del film desiderato.
 Con la ricerca nel database in questione si può accedere alla copertina del film.
